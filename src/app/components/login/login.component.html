@@ -1,0 +1,77 @@
+<div class="login_app">
+  <section class="izq_panel">
+    <form [formGroup]="formularioLogin" class="form_login" (ngSubmit)="login()" autocomplete="off">
+      <header class="title_login">
+        <h1>Login</h1>
+        <hr>
+      </header>
+
+      <div class="input_login">
+          <input type="text" placeholder="Ingresa tu usuario"
+                  formControlName="username" [class.es_invalido]="userNameNoValido">
+      </div>
+      <small *ngIf="userNameNoValido" class="es_invalido_text">
+        Ingrese almenos 3 letras
+      </small>
+  
+      <div class="input_login">
+        <input type="password"  placeholder="Ingresa tu contraseña" id="see_password"
+                formControlName="password" [class.es_invalido]="passWordNoValido">
+        
+          <button class="see_pass" type="button" (click)="mostrarPass()">
+            <img src="./assets/eye.svg">
+          </button>
+      </div>
+      
+      <small *ngIf="passWordNoValido" class="es_invalido_text">
+        Requerido
+      </small>
+    
+      <div class="submit_login">
+          <button type="submit" class="">
+            Ingresar
+          </button>
+      </div>
+      
+      <section class="details_login">
+        <div>
+          <a href="#">No tienes cuenta?</a>
+        </div>
+        <div>
+          <a href="#">Olvidaste tu contraseña?</a>
+        </div>
+      </section>
+
+      <div>
+        <app-loading *ngIf="cargando"></app-loading>
+      </div>
+  
+      <div id="notFound_user" *ngIf="mostrarMensaje" class="animate__animated animate__backInDown">
+        <h3>¡Oops!</h3>
+        <p>Usuario o contraseña inválidos, por favor intente de nuevo.</p>
+      </div>
+
+    </form>
+
+    <div class="content_svg" >
+      <svg viewBox="0 0 500 150" preserveAspectRatio="none" style="height: 100%; width: 100%;">
+        <path d="M268.34,-0.48 C216.98,59.70 317.43,105.09 243.50,158.38 L-4.22,149.50 L-3.67,-2.45 Z" style="stroke: none; fill: url(#MyGradient);"></path>
+        <defs>
+          <linearGradient id="MyGradient">
+            <stop offset="10%" stop-color="#548bb4" />
+            <stop offset="90%" stop-color="#62A9DE" />
+          </linearGradient>
+        </defs>
+      </svg>
+    </div>
+    
+  </section>
+  <section class="der_panel">
+    <figure class=" img_login">
+      <img src="./assets/img_login.svg" alt="Login web">
+    </figure>
+  </section>
+</div>
+
+<!-- userName: testuser
+password: Test123 -->

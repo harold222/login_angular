@@ -1,0 +1,196 @@
+@import '../../../assets/_mixins.scss';
+
+.login_app{
+    overflow: hidden;
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: row;
+
+    .izq_panel, .der_panel{
+        width: 100vw;
+        height: 100vh;
+        
+        @include tablet{
+            width: 50vw;
+        }
+    }
+
+    .der_panel{
+        display: none;
+        @include tablet{
+            display: flex;
+        }
+    }
+
+    .form_login{
+        background: rgb(76,111,147);
+        background: linear-gradient(0deg, rgba(76,111,147,1) 5%, rgba(98,169,222,1) 100%);
+        display: flex;
+        height: 100%;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+
+        @include tablet{
+            background: transparent;
+        }
+
+        .title_login{
+            margin-bottom: 30px;
+            h1{
+                text-transform: uppercase;
+                color: whitesmoke;
+                font-weight: 800;
+                font-size: 55px;
+            }
+        }
+    }
+
+    .img_login{
+        display: flex;
+        height: 100%;
+        justify-content: center;
+
+        img{
+            width: 90%;
+        }
+    }
+}
+
+.input_login{
+    display: flex;
+    flex-direction: column;  
+    margin: 5px 0px 15px 0px;
+    width: 80%;
+    @include tablet{
+        width: 55%;
+    }
+
+    max-width: 400px;
+    position: relative;
+
+    input{
+        border-radius: 20px;
+        background-color: white;
+        border: none;
+        height: 40px;
+        padding: 5px;
+        text-align: center;
+        outline: none;
+        color: black;
+        font-size: 17px;
+        font-weight: 100;
+        letter-spacing: 1px;
+    }
+
+    .see_pass{
+        width: 37px;
+        height: 37px;
+        display: flex;
+        position: absolute;
+        right: 0;
+        border: none;
+        outline: none;
+        background: transparent;
+        z-index: 1;
+        align-items: center;
+
+        @include tablet{
+            display: none;
+        }
+
+        @include pc{
+            display: flex;
+        }
+
+        img{
+            width: 70%;
+        }
+
+        &:active{
+            img{
+                width: 75%;
+            }
+        }
+    }
+}
+
+.submit_login{
+    margin-top: 10px;
+
+    button{
+        width: 200px;
+        border: none;
+        outline: none;
+        border-radius: 20px;
+        color: white;
+        background-color: #01CC94;
+        padding: 10px;
+        font-size: 18px;
+        font-weight: 700;
+        transition: all 1s;
+
+        &:hover{
+            background-color: #06996f;
+            border: 1px solid black;
+        }
+    }
+}
+
+#notFound_user{
+    margin-top: 20px;
+    color: white;
+    background: rgba(223, 28, 28, 0.733);
+    padding: 12px;
+    border-radius: 5px;
+
+    h3{
+        font-weight: bold;
+    }
+
+    p{
+        font-style: oblique;
+    }
+}
+
+.details_login{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: space-around;
+    margin-top: 10px;
+    width: 60%;
+    max-width: 500px;
+    
+    @include pc{
+        flex-direction: row;
+    }
+
+    a{
+        text-decoration: none;
+        color: white;
+        transition: color 0.5s;
+        font-size: 15px;
+
+        &:hover{
+            color: rgb(218, 216, 216);
+        }
+    }
+}
+
+.content_svg{
+    display: none;
+
+    @include tablet{
+        display: initial;
+        height: 100%;
+        width: 100%;
+        overflow: hidden;
+        position: absolute;
+        right: 0;
+        top: 0;
+        z-index: -1;
+    }
+
+}
